@@ -1,11 +1,4 @@
-# caller
-Go package caller provides a helper to make getting caller information simpler, and adds the ability to ignore functions or packages, a la `testing.Helper`.
-
-Please look at the [example file](example_embed_test.go) to see how to make use of it.
-
-```go
-
-package main
+package caller_test
 
 import (
 	"fmt"
@@ -56,7 +49,7 @@ func (l Log) Info(msg string) {
 	l.log("INFO", msg)
 }
 
-func main() {
+func ExampleCaller() {
 	var l Log
 	l.Init()
 	// Doubled message is called frequently, so have the modification to ignore list only
@@ -66,6 +59,10 @@ func main() {
 	l.Info("First info message")
 	DoubleMessageInfo(l, "This message is doubled")
 	FatalInfo(l, "Last info message")
+	// Output:
+	// [INFO]{github.com/gdey/caller/example_embed_test.go:59} First info message
+	// [INFO]{github.com/gdey/caller/example_embed_test.go:60} This message is doubled
+	// This message is doubled
+	// [INFO]{github.com/gdey/caller/example_embed_test.go:61} Last info message
+	// Would exit here
 }
-```
-
