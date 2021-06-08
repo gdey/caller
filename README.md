@@ -1,6 +1,8 @@
 # caller
 Go package caller provides a helper to make getting caller information simpler, and adds the ability to ignore functions or packages, a la `testing.Helper`.
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/gdey/caller.svg)](https://pkg.go.dev/github.com/gdey/caller)
+
 Please look at the [example file](example_embed_test.go) to see how to make use of it.
 
 ```go
